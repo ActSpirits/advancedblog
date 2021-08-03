@@ -1,0 +1,6 @@
+spring:
+  datasource: #数据库
+    url: jdbc:mysql://127.0.0.1:3306/db_test
+    username: ActSpirits
+    password: Scwm,dnyx0
+    driver-class-name: com.mysql.cj.jdbc.Driver
