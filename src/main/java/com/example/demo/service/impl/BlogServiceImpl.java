@@ -61,5 +61,20 @@ public class BlogServiceImpl implements BlogService {
         blogMapper.incrementViewByBlogId(id);
     }
 
+    @Override
+    public List<Blog> listBlogLikeTitle(String content) {
+        return blogMapper.listBlogLikeTitle(content);
+    }
+
+    @Override
+    public void updateLikeById(Integer id, Integer like) {
+        blogMapper.updateLikeById(id,like);
+    }
+
+    @Override
+    public Integer getLikeById(Integer id) {
+        return blogMapper.getLikeById(id);
+    }
+
 
 }

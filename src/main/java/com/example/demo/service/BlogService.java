@@ -24,4 +24,11 @@ public interface BlogService {
     public void updateBlogById(Integer id, String title, String description, String content, String picture, Integer tagId);
 
     public void incrementViewByBlogId(Integer id);
+
+    public List<Blog> listBlogLikeTitle(String content);
+
+
+    public void updateLikeById(Integer id, Integer like);
+
+    public Integer getLikeById(Integer id);
 }

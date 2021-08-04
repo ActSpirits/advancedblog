@@ -25,7 +25,6 @@ public class AdminInterceptor implements HandlerInterceptor {
 
         //获取请求头中的令牌
         String token = request.getHeader("token");
-        System.out.println(token);
         try {
             DecodedJWT verify = JWTUtils.verify(token);
             System.out.println(verify.getClaims().get("type").asString());

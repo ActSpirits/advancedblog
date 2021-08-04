@@ -73,4 +73,13 @@ public interface BlogMapper {
 
     @Update("update t_blog set view = view + 1  where id = #{id}")
     public void incrementViewByBlogId(@Param("id") Integer id);
+
+    @Select("select * from t_blog where title like concat('%',#{content},'%')")
+    public List<Blog> listBlogLikeTitle(@Param("content") String content);
+
+    @Update("UPDATE t_blog SET `like` = #{like} WHERE (`id` = #{id})")
+    public void updateLikeById(@Param("id") Integer id,@Param("like") Integer like);
+
+    @Select("select t.like from t_blog as t where id = #{id}")
+    public Integer getLikeById(@Param("id") Integer id);
 }
