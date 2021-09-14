@@ -1,9 +1,9 @@
 spring:
   profiles: # 配置当前环境
-#    active: dev
+    active: dev
   datasource: #数据库
     url: jdbc:mysql://8.129.218.89:3306/db_test
-    username: ActSpirits
+    username: root
     password: Scwm,dnyx0
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:  #rest
@@ -31,7 +31,7 @@ spring:
               class: javax.net.ssl.SSLSocketFactory
   redis: #redis
     host: 8.129.218.89
-    port: 6380
+    port: 6379
     password: Scwm,dnyx0
     database: 0
     connect-timeout: 1800000
@@ -41,6 +41,11 @@ spring:
         max-wait: -1
         max-idle: 5
         min-idle: 0
+  rabbitmq: #rabbitmq
+    username: ActSpirits
+    password: Scwm,dnyx0
+    host: 8.129.218.89
+    port: 15672
 server:
   port: 8080
 

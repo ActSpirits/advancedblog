@@ -43,17 +43,31 @@ public class AdminBlogController {
         return "写作成功!";
     }
 
-    @RequestMapping("/updateBlogById")
+    @RequestMapping("/writeOrUpdate")
     @CrossOrigin
-    public String updateBlogById(@RequestBody Map<String, String> requestBody) {
-        Integer id = Integer.valueOf(requestBody.get("id"));
+    public String writeOrUpdate(@RequestBody Map<String, String> requestBody) {
+        String id = requestBody.get("id");
+        System.out.println(id);
         String title = requestBody.get("title");
         String description = requestBody.get("description");
         String content = requestBody.get("content");
         String picture = requestBody.get("picture");
         Integer tagId = Integer.valueOf(requestBody.get("tagId"));
-        blogService.updateBlogById(id, title, description, content, picture, tagId);
-        return "修改博客成功!";
+        System.out.println(title);
+        System.out.println(description);
+        System.out.println(content);
+        System.out.println(picture);
+        System.out.println(tagId);
+        if (id != null && !"".equals(id)){
+            Integer id1 = Integer.valueOf(id);
+            System.out.println("修改");
+            blogService.updateBlogById(id1, title, description, content, picture, tagId);
+            return "修改博客成功!";
+        }else {
+            System.out.println("新建");
+            blogService.insertBlog(title, description, content, picture, 0, 0, new Date(), tagId);
+            return "写作成功!";
+        }
     }
 
     @RequestMapping("/getBlogById")

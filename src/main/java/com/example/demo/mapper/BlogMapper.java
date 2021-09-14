@@ -2,6 +2,7 @@ package com.example.demo.mapper;
 
 import com.example.demo.bean.Blog;
 import org.apache.ibatis.annotations.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 import java.util.List;

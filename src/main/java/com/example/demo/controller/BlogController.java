@@ -55,9 +55,12 @@ public class BlogController {
         Blog oneById = blogService.getOneById(id);
         Integer like = (Integer) redisTemplate.opsForHash().get("blog", id);
         if (like == null) {
-            like = 0;
+            redisTemplate.opsForHash().put("blog",id,oneById.getLike());
+        }else if (like < oneById.getLike()){
+            redisTemplate.opsForHash().put("blog",id,oneById.getLike());
+        }else {
+            oneById.setLike(like);
         }
-        oneById.setLike(like);
         blogService.incrementViewByBlogId(id);
         return oneById;
     }
