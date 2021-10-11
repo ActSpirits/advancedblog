@@ -32,7 +32,7 @@ public class BlogController {
         Integer pn;
         String pn1 = map.get("pn");
         String content = map.get("content");
-        System.out.println(content);
+//        System.out.println(content);
         if (pn1 == null || "".equals(pn1)) {
             pn = 1;
         } else {

@@ -21,6 +21,7 @@ class BlogMapperTest {
 
     @Test
     public void insertBlog() {
+
     }
 
     /**
